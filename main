@@ -1,0 +1,91 @@
+import random
+import ciagi
+#                           ZADANIE 1
+# A = {1-x: xe<1,10>}
+a = [1- x for x in range(10)]
+
+
+# B b = {1,4,16,...,4^7}
+b = [4**x for x in range(8)]
+
+
+# C = {x: xeB i x jest liczbą podzielną przez 2}
+c = [x for x in b if x % 2 == 0]
+
+
+#                           ZADANIE 2
+
+lista1 =[]
+for i in range(10):
+    i = random.randint(1,100)
+    lista1.append(i)
+
+
+lista2 = [x for x in lista1 if x % 2 ==0]
+
+
+#                           ZADANIE 3
+
+produkty = {'mleko': 'litr', 'ziemniak': 'kg', 'awokado': 'szt', 'woda': 'litr', 'pomidor': 'kg', 'ananas': 'szt'}
+nowa_lista = [x for x,y in produkty.items() if y == 'szt']
+
+#                           ZADANIE 4
+
+# a,b dlugości krótszych boków, c dlugosc najdluzszego boku
+def czy_prostokatny(a,b,c):
+    if ((a**2 + b**2) == c**2):
+        print("Trojkat jest prostokatny")
+    else:
+        print("trojkat nie jest prostokatny")
+
+#                           ZADANIE 5
+
+def pole_trapezu(a = b, b= 10, h = 12):
+    pole = ((a+b)*h) / 2
+    return pole
+
+#                           ZADANIE 6
+
+def iloczyn_ciagu(a1, b1, ile1, a = 1, b = 4, ile = 10):
+    iloczyn = 1
+    for i in range(a1,ile1,b):
+        iloczyn = a1 * i
+        return iloczyn
+
+
+iloczyn_ciagu(1,2,10)
+
+#                           ZADANIE7
+
+def iloczyn_ciagu2(*liczby):
+    if len(liczby) == 0:
+        return 0;
+    else:
+        iloczyn = 1
+        for i in liczby:
+            iloczyn *= i
+            return iloczyn
+
+#                           ZADANIE8
+
+zakupy = {'ryz': 3, 'woda' : 2, 'mieso' : 11, 'jajka' : 7, 'mleko' : 4, 'chleb' :3, 'maslo' : 6, 'cebula' :2}
+
+def ile(**artykuly):
+    ile_produktow = len(artykuly.keys())
+    ile_kosztuja = sum(zakupy.values())
+    return ile_kosztuja
+
+#                           ZADANIE 9
+
+#                           ZADANIE 10
+
+liczby = [x for x in range(0,101) if x % 4 == 0]
+plik = open("liczby.txt", "w")
+plik.writelines(str(liczby))
+plik.close()
+#                           ZADANIE 11
+
+plik = open("liczby.txt", "r")
+liczby2 = plik.readlines()
+plik.close()
+print(liczby2)
